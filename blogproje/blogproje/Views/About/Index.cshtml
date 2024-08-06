@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EntityLayer.concrete.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/miniblog/images/img_4.jpg');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="post-entry text-center">
+                    <h1 class="">Hakkımızda</h1>
+                    <p class="lead mb-4 text-white">Birbirinden güzel ve bilgilendirici bloglar yazan ekibimizle tanışın :)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var i in Model)
+            {
+                <div class="col-md-6 order-md-2">
+
+                    <img src="@i.About_Image1" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-5 mr-auto order-md-1">
+                    <h2>Bizimle Tanışın</h2>
+
+                    <p>@i.About_Content1</p>
+                    
+
+                </div>
+            }
+            </div>
+    </div>
+</div>
+
+@Html.Action("MeetTheTeam", "About")
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var i in Model)
+            {
+            <div class="col-md-6">
+                <img src="@i.About_Image2" alt="Image" class="img-fluid">
+            </div>
+
+            <div class="col-md-5 ml-auto">
+                <h2>Burada Neler Oluyor</h2>
+                
+                <p class="mb-4">@i.About_Content2</p>
+                     
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+@*@Html.Action("MailSubscribe", "Blog")*@
+
+@Html.Action("Footer", "About")
+

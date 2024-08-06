@@ -1,0 +1,64 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+
+@model IEnumerable<EntityLayer.concrete.Blog>
+@{string color = ""; }
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2>Recent Posts</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var x in Model)
+            {
+                if ( x.Category.Category_Name=="Yazılım")
+                {
+                    color = "post-category text-white bg-dark mb-3";
+                }
+                if (x.Category.Category_Name == "Teknoloji")
+                {
+                    color = "post-category text-white bg-primary mb-3";
+                }
+                if (x.Category.Category_Name == "Film & Dizi")
+                {
+                    color = "post-category text-white bg-success mb-3";
+                }
+                if (x.Category.Category_Name == "Seyahat")
+                {
+                    color = "post-category text-white bg-danger mb-3";
+                }
+                if (x.Category.Category_Name == "Eğlence")
+                {
+                    color = "post-category text-white bg-olive mb-3";
+                }
+                if (x.Category.Category_Name == "Psikoloji")
+                {
+                    color = "post-category text-white bg-maroon mb-3";
+                }
+
+                <div class="col-lg-4 mb-4">
+                    <div class="entry2">
+                        <a href="single.html"><img src="@x.Blog_Image" alt="Image" class="img-fluid rounded"></a>
+                        <div class="excerpt">
+                            <span class="@color">@x.Category.Category_Name</span>
+
+                            <h2><a href="/Blog/BlogDetails/@x.Blog_ID">@x.Blog_Title</a></h2>
+                            <div class="post-meta align-items-center text-left clearfix">
+                                <figure class="author-figure mb-0 mr-3 float-left"><img src="@x.Author.Author_Image" alt="Image" class="img-fluid"></figure>
+                                <span class="d-inline-block mt-1"><a href="#">@x.Author.Author_Name</a></span>
+                                <span>@x.Blog_Date</span>
+                            </div>
+                            <p>@x.Blog_Content.Substring(0,x.Blog_Content.Substring(0,250).LastIndexOf(" "))</p>
+                            <p><a href="/Blog/BlogDetails/@x.Blog_ID">Read More</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EntityLayer.concrete.Blog>
+
+<div class="sidebar-box">
+    <h3 class="heading">Popular Posts</h3>
+    <div class="post-entry-sidebar">
+        <ul>
+            @foreach (var i in Model)
+            {
+        <li>
+
+            <a href="/Blog/BlogDetails/@i.Blog_ID">
+                <img src="@i.Blog_Image" alt="Image placeholder" class="mr-4">
+                <div class="text">
+                    <h4>@i.Blog_Title</h4>
+                    <div class="post-meta">
+                        <span class="mr-2">@i.Blog_Date</span>
+                    </div>
+                </div>
+            </a>
+
+        </li>
+            }
+                    </ul>
+    </div>
+</div>

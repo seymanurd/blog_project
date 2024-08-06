@@ -1,0 +1,23 @@
+﻿@model IEnumerable<EntityLayer.concrete.Author>
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-5 text-center">
+                <h2>Yazar Ekibimiz</h2>
+                <p>Birbirinden keyifli ve öğretici içeriklerle karşınıza çıkan ekibimiz ile tanışın.</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var i in Model)
+            {
+            <div class="col-md-6 col-lg-4 mb-5 text-center">
+                <img src="@i.Author_Image" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+                <h2 class="mb-3 h5">@i.Author_Name</h2>
+                <p>@i.Author_About</p>
+            </div>
+            }
+        </div>
+    </div>
+</div>

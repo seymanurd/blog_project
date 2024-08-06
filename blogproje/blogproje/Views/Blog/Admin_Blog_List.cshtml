@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EntityLayer.concrete.Blog>
+@{
+    ViewBag.Title = "Admin_Blog_List";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2>Bloglar</h2>
+</br>
+</br>
+<table class="table table-bordered">
+    <tr>
+        <th>Blog ID</th>
+        <th>Kategori</th>
+        <th>Başlık</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach(var i in Model)
+            {
+<tr>
+    <td>@i.Blog_ID</td>
+    <td>@i.Category.Category_Name</td>
+    <td>@i.Blog_Title</td>
+    <td><a href="/Blog/Delete_Blog/@i.Blog_ID" class="btn btn-outline-danger">Sil</a></td>
+</tr>
+            }
+</table>
+<a href="/Blog/Add_Blog/" class="btn btn-success">Yeni Blog</a>
+      
+

@@ -1,0 +1,32 @@
+﻿@model EntityLayer.concrete.Blog
+@{
+    ViewBag.Title = "Add_Blog";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x=>x.Category_ID,(List<SelectListItem>)ViewBag.value, new { @class ="form-control"})
+    <br />
+    <br />
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Blog_Title, new { @class = "form-control" })
+    <br />
+    <br />
+
+    @Html.Label("Resim")
+    @Html.TextBoxFor(x => x.Blog_Image, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Yazar")
+    @Html.TextBoxFor(x => x.Author_Id, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("İçerik")
+    @Html.TextAreaFor(x => x.Blog_Content, new { @class = "form-control" })
+    <br />
+    <br />
+   <button class="btn btn-outline-danger">Gönder</button>
+</form>
+
